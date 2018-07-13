@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load codeprep_template_tags %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <title>
+    CodePrep - {% block title %}It even compiles!{% endblock %}
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo">
+  <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/examples/signin/signin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static "CSS/baseCSS.css" %}">
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="{% url 'index' %}"><img id="logo" src="{% static "images/logo.png" %}" alt="CodePrep"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">Menu
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'auth_logout' %}?next=/codeprep/">Logout</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'registration_register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'auth_login' %}">Login</a>
+        </li>
+    {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  {% block body_block %}
+  {% endblock %}
+
+
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="{% static "JS/codeprep-jquery.js" %}"></script>
+  <script src="{% static "JS/codeprep-ajax.js" %}"></script>
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  <!-- IE10 viewport hack -->
+  <script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

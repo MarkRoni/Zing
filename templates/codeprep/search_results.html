@@ -1,0 +1,37 @@
+{% extends 'codeprep/base.html' %}
+
+{% block body_block %}
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Course Search</h1>
+  </div>
+</div>
+
+
+  <form method="get" class="search-form" action="/codeprep/search_results/">
+  {% for field in form.visible_fields %}
+    {{ field.help_text }}
+    {{ field }} <br />
+    {% if field.name == 'subject' %}
+      <p id="suggestion" />
+    {% endif %}
+  {% endfor %}
+  <input type="submit" class="btn btn-secondary" value="Search Courses">
+  </form>
+  </br>
+<div class="container-fluid text-center">
+    {% if courses %}
+    <ul class="list-group" id="courselist">
+      {% for course in courses %}
+      <li class="list-group-item"><a href="{% url 'show_course' course.slug %}">
+      {{ course.name }}</a>
+      <p class="rating">Average Rating: {{ course.rating }}</p>
+      </li>
+
+      {% endfor %}
+    </ul>
+    {% else %}
+    <strong>No search results :(</strong>
+    {% endif %}
+</div>
+{% endblock %}

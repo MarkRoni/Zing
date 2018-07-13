@@ -1,0 +1,32 @@
+{% extends 'codeprep/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+  Review {{ course.name }}
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">{{ course.name }}</h1>
+{% if course %}
+    <h3>{{ user.username }}'s review:</h2>
+  </div>
+</div>
+<div class="container-fluid text-center">
+  <form id="review_form" method="post" action=".">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+      {{ field.help_text }}
+      {{ field }}
+    </br>
+    </br>
+    {% endfor %}
+  <button class="btn btn-secondary review-buttons" type="submit" name="submit"/>Submit Review</button>
+  <a class="btn btn-secondary review-buttons" href="{% url 'show_course' course.slug %}">Return to the course page</a><br />
+  </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

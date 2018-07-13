@@ -1,0 +1,52 @@
+{% extends 'codeprep/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ selecteduser.username }} Profile{% endblock %}
+
+{% block body_block %}
+
+<div class="container-fluid profile">
+  <div class="row">
+
+      <div class="card col-md-4">
+        <img class="card-img-top" src="/media/{{ userprofile.picture }}" alt="Profile picture">
+        <div class="card-body">
+          <h4 class="card-title">{{ selecteduser.username }}</h4>
+          <p class="card-text">Name, DOB, Courses</p>
+
+          <a href="#" class="btn btn-secondary">Logout</a>
+        </div>
+      </div>
+     <div class="card" style="width:600px">
+        <div class="card-body">
+          <h3 class="card-title">Enrolled Courses</h3>
+          {% for course in enrolledcourses %}
+          <a href="{% url 'show_course' course.slug %}">{{ course.name }}</a><br />
+          {% endfor %}
+          <br />
+          <a href="{% url 'search_course' %}">Add More</a>
+        </div>
+      </div>
+
+
+      <div class="card col-md-8" id="profile-info">
+      {% if selecteduser.username == user.username %}
+        <form method="post" action="." anctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Update" />
+        </form>
+        <a href="{% url 'settings' %}" class="btn btn-secondary">Social Login Settings</a>
+        <a href="{% url 'disable_profile' %}" class="btn btn-secondary">Delete Your Profile</a>
+      {% else %}
+        <p><strong>Website:</strong> <a href="{{ userprofile.website }}">
+      {{ userprofile.website }}</a></p>
+      {% endif %}
+      </div>
+
+
+  </div>
+</div>
+
+{% endblock %}

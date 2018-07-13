@@ -1,0 +1,9 @@
+# Do not include database
+db.sqlite3
+
+# Do not include pycache or .pyc files
+__pycache__/
+*.pyc
+
+# Temporarily include .env
+.env

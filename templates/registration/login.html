@@ -1,0 +1,26 @@
+{% extends "codeprep/base.html" %}
+{% block body_block %}
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Login</h1>
+  </div>
+</div>
+<div class=container-fluid>
+  <form class="form-signin" role="form" method="post" action=".">
+    {% csrf_token %}
+    <h2 class="form-signin-heading text-center">Please sign in</h2>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" name="username" id="id_username" class="form-control"placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-secondary btn-block" type="submit" value="Submit" />Sign in</button>
+  </form>
+</div></br>
+<div class="container-fluid text-center">
+  <h4>Login with..</h4>
+  <a href="{% url 'social:begin' 'github' %}" class="fa fa-github"></a>
+  <a href="{% url 'social:begin' 'twitter' %}" class="fa fa-twitter"></a>
+  <a href="{% url 'social:begin' 'facebook' %}" class="fa fa-facebook"></a>
+</div>
+{% endblock %}

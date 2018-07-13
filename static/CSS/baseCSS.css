@@ -1,0 +1,190 @@
+{% load staticfiles %}
+
+#about-image {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  padding-top: 70px;
+  font-family: 'Arvo', serif;
+}
+
+#carousel-header {
+  padding-top: 50px;
+}
+
+.course-details {
+  padding-top: 35px;
+}
+
+.course-logos {
+  width: 300px;
+  height: auto;
+}
+
+.course-providers {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: #B6CFE5;
+  margin-top: -35px;
+}
+
+.course-stuff {
+  text-align: center;
+}
+
+.dropdown {
+  padding: 20px;
+}
+
+.fa {
+  color: #273746;
+  font-size: 60px;
+  height: auto;
+  padding: 20px;
+}
+
+footer {
+  background-color: #273746;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+}
+
+#hero-image {
+  display: block;
+  max-width: 100%;
+}
+
+.info {
+  margin-top: -35px;
+  padding-top: 50px;
+  padding-bottom: 75px;
+  background-color: #273746;
+  color: white;
+}
+
+.jumbotron {
+  background-color: #273746;
+  color: white;
+}
+
+#logo {
+  height: 50px;
+}
+
+.nav-link {
+  color: white;
+  font-family: 'Arvo', serif;
+  font-size: 1.5em;
+}
+
+.navbar {
+  background-color: #273746;
+}
+
+.profile {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.review-buttons {
+  margin-top: 20px;
+}
+
+.row {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.sign-up-form {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#testimonial {
+  background-color: #B6CFE5;
+  padding-bottom: 50px;
+  color: #273746;
+}
+
+#testimonial-carousel {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.title-page {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+#basic_search{
+    font-size: 30px;
+    margin-bottom:10px;
+}
+
+#basic_search input[type='text'] {
+    width: 100%
+}
+
+.search-form {
+    width:550px;
+    padding:25px;
+    margin:auto;
+    margin-bottom:40px;
+    background-color: #d8d8d8;
+    border-radius:10px;
+    box-shadow: 2px 2px 8px #888888
+}
+
+#id_style {
+    padding:0px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+#id_style li {
+    padding: 0px 10px 0px 10px;;
+    vertical-align:middle;
+    text-align:left;
+    width:165px;
+}
+
+.search-form input[type='checkbox'] {
+    -webkit-appearance:none;
+    vertical-align:middle;
+    width:27px;
+    height:27px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+.search-form input[type='checkbox']:checked {
+    background: #273746;
+    color: #FFF;
+}
+.search-form input[type='checkbox']:checked:after {
+    content:'🗸';
+    padding-left:3px;
+}
+
+.search-form input[type='submit'] {
+    width:100%;
+    margin-top:10px;
+}
+
+.search-form input[type='text'] {
+    display:block;
+    width:100%;
+    margin-bottom:10px;
+}

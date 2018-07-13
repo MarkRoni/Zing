@@ -1,0 +1,24 @@
+{% extends 'codeprep/base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Course Search</h1>
+  </div>
+</div>
+  <form method="get" class="search-form"  action="/codeprep/search_results/">
+  {% for field in form.visible_fields %}
+    {{ field.help_text }}
+    {{ field }} <br />
+    {% if field.name == 'subject' %}
+      <p id="suggestion" />
+    {% endif %}
+  {% endfor %}
+  <input type="submit" class="btn btn-secondary" value="Search Courses">
+  </form>
+
+  <div id="cats">
+  </div>
+{% endblock %}
